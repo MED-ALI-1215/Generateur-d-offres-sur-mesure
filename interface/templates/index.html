@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity AI Offer Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>coustom Offer Generator</h1>
+            </div>
+            <div class="header-subtitle">
+                <p>Generate professional service offers tailored to your client's needs in seconds</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-container">
+                    <h2 class="section-title">
+                        <i class="fas fa-terminal"></i> Describe Your  Needs
+                    </h2>
+                    <div class="input-wrapper">
+                        <textarea id="questionInput" placeholder="Example: We need to protect our e-commerce platform from DDoS attacks and implement a secure payment processing system..."></textarea>
+                        <div id="classificationPreview"></div>
+                    </div>
+                    <div class="input-actions">
+                        <button class="btn btn-primary" id="generateBtn">
+                            <i class="fas fa-magic"></i> Generate Offer
+                        </button>
+                        <button class="btn btn-secondary" id="clearBtn">
+                            <i class="fas fa-eraser"></i> Clear
+                        </button>
+                        <button class="btn btn-outline" id="classifyBtn">
+                            <i class="fas fa-tags"></i> Classify
+                        </button>
+                        <button class="btn btn-outline" id="systemStatusBtn">
+                            <i class="fas fa-info-circle"></i> System Status
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="examples-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb"></i> Example Use Cases
+                    </h2>
+                    <div class="examples-grid">
+                        <div class="example-card" data-example="We need a comprehensive security audit for our financial services web application that handles sensitive customer data.">
+                            <h4><i class="fas fa-search-dollar"></i> Financial App Audit</h4>
+                            <p>Security assessment for financial application handling sensitive data</p>
+                        </div>
+                        <div class="example-card" data-example="Our company requires a penetration testing service for our e-commerce platform to identify vulnerabilities before the holiday season.">
+                            <h4><i class="fas fa-bug"></i> E-commerce Penetration Testing</h4>
+                            <p>Vulnerability assessment for online retail platform</p>
+                        </div>
+                        <div class="example-card" data-example="We need to implement a zero-trust network architecture for our distributed workforce of 200 employees.">
+                            <h4><i class="fas fa-network-wired"></i> Zero Trust Implementation</h4>
+                            <p>Secure network architecture for remote workforce</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section class="loading-section" id="loadingSection">
+                <div class="loading-container">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <h3>Generating your cybersecurity offer...</h3>
+                    
+                    <div class="pipeline-steps" id="pipelineSteps">
+                        <div class="step active" id="step-init">
+                            <i class="fas fa-circle-notch"></i>
+                            <div class="step-text">Initializing</div>
+                        </div>
+                        <div class="step" id="step-retrieve">
+                            <i class="fas fa-search"></i>
+                            <div class="step-text">Retrieving Documents</div>
+                        </div>
+                        <div class="step" id="step-grade_documents">
+                            <i class="fas fa-check-double"></i>
+                            <div class="step-text">Grading Documents</div>
+                        </div>
+                        <div class="step" id="step-generate">
+                            <i class="fas fa-magic"></i>
+                            <div class="step-text">Generating Offer</div>
+                        </div>
+                        <div class="step" id="step-validate">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="step-text">Validating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    
+                    <p>Our AI is analyzing industry best practices and your specific requirements to create a tailored cybersecurity offer.</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection">
+                <!-- Metrics Dashboard -->
+                <div class="metrics-dashboard">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-bar"></i> Generation Metrics
+                    </h2>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-label">Processing Time</div>
+                            <div id="processingTime">0s</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Documents Used</div>
+                            <div id="documentsCount">0/0</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Confidence Score</div>
+                            <div id="confidenceScore">0%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Category</div>
+                            <div id="categoryDetected">None</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Quality Grade</div>
+                            <div id="qualityGrade">-</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Precision</div>
+                            <div id="precisionScore">-</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Consistency</div>
+                            <div id="consistencyScore">-</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Overall Score</div>
+                            <div id="overallScore">-</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Estimated Cost</div>
+                            <div id="estimatedCost">$0.00</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Memory Usage</div>
+                            <div id="memoryUsage">0 MB</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Pipeline Efficiency</div>
+                            <div id="pipelineEfficiency">0%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Completeness</div>
+                            <div id="completenessScore">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer Container -->
+                <div class="offer-container">
+                    <div class="offer-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-file-alt"></i> Generated Offer
+                        </h2>
+                        <div class="offer-actions">
+                            <button class="btn btn-secondary" id="copyBtn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="btn btn-primary" id="downloadBtn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn btn-outline" id="newOfferBtn">
+                                <i class="fas fa-redo"></i> New Offer
+                            </button>
+                        </div>
+                    </div>
+                    <div class="offer-content">
+                        <div id="generatedOffer">
+                            <p class="text-center text-muted">Your generated offer will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Error</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="errorMessage">
+                An unexpected error occurred.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="dismissModalBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast" id="successToast">
+        <i class="fas fa-check-circle"></i>
+        <div id="toastMessage">Operation completed successfully</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
