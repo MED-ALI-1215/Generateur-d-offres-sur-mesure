@@ -1,0 +1,79 @@
+{
+  "taxonomy": {
+    "metadata": {
+      "version": "1.0",
+      "lastUpdated": "2024-07-10",
+      "description": "Taxonomie unifiée pour génération d'offres"
+    },
+    "dimensions": {
+      "secteurs": {
+        "banque": ["Banque de détail", "Banque d'investissement", "Assurance", "Néobanque"],
+        "industrie": ["Automobile", "Aéronautique", "Chimie", "Énergie", "Manufacturing"],
+        "retail": ["E-commerce", "Grande distribution", "Luxe", "Mode"],
+        "sante": ["Hôpitaux", "Pharma", "Medtech", "Télémédecine"],
+        "public": ["Collectivités", "Ministères", "Établissements publics"],
+        "telecoms": ["Opérateurs", "Équipementiers", "Satellites"]
+      },
+      "technologies": {
+        "cyber": ["SOC", "Threat Intelligence", "OT Security", "Zero Trust", "SIEM"],
+        "ia": ["Machine Learning", "NLP", "Computer Vision", "GenAI", "MLOps"],
+        "data": ["Data Mesh", "Data Governance", "Analytics", "BigData", "DataOps"],
+        "cloud": ["Azure", "AWS", "Multi-cloud", "Hybrid", "Migration"],
+        "automation": ["RPA", "Process Mining", "Low-code", "Workflow"]
+      },
+      "pain_points": {
+        "securite": ["Cyberattaques", "Conformité", "Gestion des accès", "Sécurité OT"],
+        "donnees": ["Silos de données", "Qualité des données", "Gouvernance", "RGPD"],
+        "processus": ["Efficacité opérationnelle", "Automatisation", "Collaboration"],
+        "innovation": ["Transformation digitale", "Modernisation", "Compétitivité"]
+      },
+      "types_offres": {
+        "diagnostic": ["Audit", "Assessment", "Évaluation", "Benchmark"],
+        "conseil": ["Stratégie", "Roadmap", "Accompagnement", "Change Management"],
+        "implementation": ["Déploiement", "Integration", "Migration", "Développement"],
+        "formation": ["Training", "Certification", "Workshops", "Mentoring"],
+        "support": ["Maintenance", "Support", "Monitoring", "Optimisation"]
+      },
+      "maturite": {
+        "debutant": ["Sensibilisation", "Découverte", "Initiation"],
+        "intermediaire": ["Mise en œuvre", "Optimisation", "Standardisation"],
+        "avance": ["Innovation", "Excellence", "Leadership"],
+        "expert": ["R&D", "Thought Leadership", "Disruption"]
+      },
+      "taille_entreprise": {
+        "tpe": ["1-10 employés", "Artisan", "Freelance"],
+        "pme": ["10-250 employés", "Startup scale-up"],
+        "eti": ["250-5000 employés", "Groupe régional"],
+        "grand_groupe": ["+5000 employés", "Multinationale", "CAC40"]
+      },
+      "geographie": {
+        "france": ["Île-de-France", "Région", "DOM-TOM"],
+        "europe": ["Union Européenne", "UK", "Suisse"],
+        "international": ["Amérique du Nord", "Asie-Pacifique", "Afrique"],
+        "maghreb": ["Maroc", "Tunisie", "Algérie"]
+      },
+      "urgence": {
+        "faible": ["Planifié", "Préventif", "Amélioration continue"],
+        "moyenne": ["Important", "Priorisation", "Trimestre"],
+        "elevee": ["Urgent", "Critique", "Immédiat"],
+        "critique": ["Crise", "Urgence absolue", "Arrêt d'activité"]
+      }
+    },
+    "relations": {
+      "secteur_technologie": {
+        "banque": ["Cyber", "IA", "Data", "Cloud"],
+        "industrie": ["Cyber", "IoT", "Automation", "Cloud"],
+        "retail": ["IA", "Data", "Cloud", "Automation"],
+        "sante": ["Cyber", "IA", "Data", "Cloud"],
+        "public": ["Cyber", "Cloud", "Data"],
+        "telecoms": ["Cyber", "Cloud", "IA"]
+      },
+      "taille_maturite": {
+        "tpe": ["Debutant", "Intermediaire"],
+        "pme": ["Debutant", "Intermediaire", "Avance"],
+        "eti": ["Intermediaire", "Avance", "Expert"],
+        "grand_groupe": ["Avance", "Expert"]
+      }
+    }
+  }
+}
