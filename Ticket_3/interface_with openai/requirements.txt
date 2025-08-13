@@ -1,0 +1,12 @@
+flask
+flask-cors
+langsmith
+langchain
+langchain-core
+langchain-community
+langchain-cohere
+sentence-transformers
+faiss-cpu
+python-pptx
+langgraph
+pydantic
